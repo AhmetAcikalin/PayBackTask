@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="hit"
+            type="com.ahmet.acikalin.paybacktask.data.model.api.Hit" />
+
+        <variable
+            name="fragment"
+            type="com.ahmet.acikalin.paybacktask.ui.image_detail.ImageDetailFragment" />
+
+        <variable
+            name="viewModel"
+            type="com.ahmet.acikalin.paybacktask.ui.image_detail.ImageDetailViewModel" />
+    </data>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="8dp"
+            android:fitsSystemWindows="true"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="8dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/detail_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:text="@{hit.user}"
+                    android:textSize="@dimen/BigTextSize"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/detail_image"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:adjustViewBounds="true"
+                    app:layout_constrainedHeight="true"
+                    app:layout_constraintBottom_toTopOf="@id/linear_layout"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/detail_username"
+                    app:srcCompat="@drawable/ic_image_black_24dp"
+                     />
+
+                <LinearLayout
+                    android:id="@+id/linear_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintBottom_toTopOf="@id/horizontal_scroll"
+                    app:layout_constraintStart_toStartOf="parent">
+
+
+                    <TextView
+                        android:id="@+id/detail_likes"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:drawablePadding="5dp"
+                        android:text="@{Integer.toString(hit.likes)}"
+                        android:textSize="@dimen/normalTextSize"
+
+                        />
+
+                    <TextView
+                        android:id="@+id/detail_favs"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:drawablePadding="5dp"
+                        android:text="@{Integer.toString(hit.favorites)}"
+                        android:textSize="@dimen/normalTextSize" />
+
+                    <TextView
+                        android:id="@+id/detail_comments"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_margin="4dp"
+                        android:drawablePadding="5dp"
+                        android:text="@{Integer.toString(hit.comments)}"
+                        android:textSize="@dimen/normalTextSize" />
+                </LinearLayout>
+
+                <HorizontalScrollView
+                    android:id="@+id/horizontal_scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="6dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/detail_tags_group"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
+
+                </HorizontalScrollView>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </com.google.android.material.card.MaterialCardView>
+
+
+    </FrameLayout>
+</layout>

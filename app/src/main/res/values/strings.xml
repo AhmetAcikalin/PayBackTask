@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">PayBackTask</string>
+    <string name="api_url">https://pixabay.com/api/?key=</string>
+    <string name="api_token">14451164–856a52a1e8819ecbdaefc0172</string>
+    <string name="list_view">List view</string>
+    <string name="search">Search</string>
+    <string name="fruits">Fruits</string>
+    <string name="do_you_want_more_details">Do you want to see more details ?</string>
+    <string name="alert">Alert</string>
+    <string name="no_internet_connection_available">No internet connection available!</string>
+    <string name="connection_problem">Connection Problem!!</string>
+    <string name="grid_view_2">Grid view 2</string>
+    <string name="grid_view_3">Grid view 3</string>
+    <string name="error_message">Error Message</string>
+</resources>

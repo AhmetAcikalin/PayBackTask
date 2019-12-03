@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="fragment"
+            type="com.ahmet.acikalin.paybacktask.ui.image_list.ImageListFragment" />
+    </data>
+
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/app_bar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            app:elevation="4dp">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:contentScrim="?attr/colorPrimary"
+                app:layout_scrollFlags="scroll">
+
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/card_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="14dp"
+                    app:cardElevation="4dp"
+                    app:cardUseCompatPadding="true"
+                    app:layout_collapseMode="parallax"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <com.google.android.material.textfield.TextInputLayout
+                            android:id="@+id/search_bar_layout"
+                            style="@style/TextInputLayoutStyle"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_margin="4dp"
+                            android:visibility="visible"
+                            app:layout_constraintStart_toStartOf="parent"
+
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintWidth_percent="0.7">
+
+                            <AutoCompleteTextView
+                                android:id="@+id/search_bar"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:hint="@string/search"
+                                android:imeOptions="actionNext"
+                                android:maxLength="100"
+                                android:selectAllOnFocus="true"
+                                android:singleLine="true"
+                                android:textColor="@color/black"
+                                android:textSize="@dimen/XnormalTextSize"
+
+                                />
+                        </com.google.android.material.textfield.TextInputLayout>
+
+                        <ImageButton
+                            android:id="@+id/add_search_tag"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+
+                            android:background="@null"
+                            app:layout_constraintBottom_toBottomOf="@+id/search_bar_layout"
+                            app:layout_constraintEnd_toStartOf="@id/open_popup"
+                            app:layout_constraintStart_toEndOf="@+id/search_bar_layout"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_add_circle_outline_black_24dp"
+                            />
+                        <ImageButton
+                            android:id="@+id/open_popup"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@null"
+                            app:layout_constraintBottom_toBottomOf="@+id/search_bar_layout"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toEndOf="@+id/add_search_tag"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:srcCompat="@drawable/ic_view_list_black_24dp"
+
+                            />
+
+
+                        <HorizontalScrollView
+                            android:id="@+id/horizontal_scroll"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:padding="5dp"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toBottomOf="@id/search_bar_layout"
+                            app:layout_constraintWidth_percent="0.82">
+
+                            <com.google.android.material.chip.ChipGroup
+                                android:id="@+id/search_chip_group"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+
+                            </com.google.android.material.chip.ChipGroup>
+                        </HorizontalScrollView>
+
+                        <ImageButton
+                            android:id="@+id/clear_all"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@null"
+                            app:layout_constraintBottom_toBottomOf="@id/horizontal_scroll"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@id/open_popup"
+                            app:layout_constraintTop_toTopOf="@id/horizontal_scroll"
+                            app:srcCompat="@drawable/ic_delete_forever_black_24dp"
+                            />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </androidx.cardview.widget.CardView>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+        <ProgressBar
+            android:id="@+id/progress_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/txt_error"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/connection_problem"
+            android:visibility="gone" />
+
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/result_recycler_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:scrollbars="vertical"
+               />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+        </LinearLayout>
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+</layout>

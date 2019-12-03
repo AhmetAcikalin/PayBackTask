@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <dimen name="XXBiggerTextSize">35sp</dimen>
+    <dimen name="XBiggerTextSize">30sp</dimen>
+    <dimen name="BiggerrTextSize">25sp</dimen>
+    <dimen name="BiggerTextSize">23sp</dimen>
+    <dimen name="BigTextSize">20sp</dimen>
+    <dimen name="XnormalTextSize">17sp</dimen>
+    <dimen name="normalTextSize">15sp</dimen>
+    <dimen name="XsmallTextSize">13sp</dimen>
+    <dimen name="smallTextSize">12sp</dimen>
+    <dimen name="smallerTextSizeList">11sp</dimen>
+    <dimen name="smallerTextSize">9sp</dimen>
+</resources>
