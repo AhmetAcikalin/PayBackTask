@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
         lateinit var cache: Cache
         var hasNetwork: Boolean = false
     }
-
+    private lateinit var binding : ActivityMainBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil
