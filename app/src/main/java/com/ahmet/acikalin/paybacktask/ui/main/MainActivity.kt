@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         lateinit var cache: Cache
-        lateinit var binding: ActivityMainBinding
         var hasNetwork: Boolean = false
     }
 
